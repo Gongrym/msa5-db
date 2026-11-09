@@ -51,9 +51,9 @@ WHERE
 	-- mySQL 같은 경우는 이 양식을 꼭 지켜줘야함
 	-- DBMS에 따라 이 양식이 조금씩 다름
 ;
-	
-	-- 퇴사하지 않은 사원 정보 다 주세요.
-SELECT	
+
+-- 퇴사하지 않은 사원 정보 다 주세요.
+SELECT
 	*
 FROM employees
 WHERE
@@ -74,7 +74,7 @@ WHERE
 
 -- IN연산자: 다수의 지정한 값과 일치하는 데이터를 조회
 SELECT
- 	*
+	*
 FROM employees
 WHERE
 -- `name` = '박보람'
@@ -98,8 +98,8 @@ SELECT
 FROM employees
 WHERE
 	`name` LIKE '%우' -- 마지막이'우'로 끝나는것
---	`name` LIKE '우%' -- 우로 시작하는것
---	`name` LIKE '%우%' -- '우'가 포함된 사원
+-- `name` LIKE '우%' -- 우로 시작하는것
+-- `name` LIKE '%우%' -- '우'가 포함된 사원
 ;
 
 -- (_): 언더바의 개수만큼 글자수를 허용해서 조회
@@ -114,7 +114,7 @@ WHERE
 SELECT
 	*
 FROM employees
-ORDER BY `name` ASC --오름차순 정렬
+ORDER BY `name` ASC -- 오름차순 정렬
 -- 오름차순은 ASC 생략이 가능함.
 -- ORDER BY `name` DESC -- 내림차순 정렬
 ;
@@ -150,6 +150,7 @@ FROM salaries
 WHERE
 	end_at IS NULL
 ;
+
 -- MAX(컬럼명): 가장 큰 값 조회
 SELECT
 	MAX(salary) max_sal
@@ -157,6 +158,7 @@ FROM salaries
 WHERE
 	end_at IS NULL
 ;
+
 -- MIN(컬럼명): 가장 작은 값 조회
 SELECT
 	MIN(salary) min_sal
@@ -164,6 +166,7 @@ FROM salaries
 WHERE
 	end_at IS NULL
 ;
+
 -- AVG(컬럼명)
 SELECT
 	AVG(salary) avg_sal
@@ -171,6 +174,7 @@ FROM salaries
 WHERE
 	end_at IS NULL
 ;
+
 -- COUNT(컬럼명)
 -- 현재 재직중인 사원 수를 구해주세요.
 SELECT
@@ -228,8 +232,8 @@ GROUP BY title_code -- 직급별!!
 -- practice 2
 SELECT
 	title_code
-	,end_at
-	,start_at
+	-- ,end_at
+	-- ,start_at
 	,COUNT(*) cnt
 FROM title_emps
 WHERE -- 조건 달기
