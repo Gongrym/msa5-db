@@ -104,7 +104,17 @@ FROM employees emp
 
 -- ------------------------------
 -- 전체 평균 급여보다 높은 급여를 받은 기록을 조회
-
-
+SELECT
+    sal.salary
+    , emp.`name`
+    , emp.emp_id
+FROM salaries sal
+    JOIN employees emp
+        ON sal.emp_id = emp.emp_id
+WHERE sal.salary > (
+    SELECT AVG(salaries.salary)
+    FROM salaries
+)
+ORDER BY sal.salary ASC;
 
 -- 가장 높은 급여를 받은 이력이있는 사원의 사번과 급여를 조회
